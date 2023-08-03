@@ -4,6 +4,19 @@ import cv2
 from PIL import Image
 from filters import *
 
+st.markdown(
+    """
+    <style>
+    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+    .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Generating a link to download a particular image file.
 def get_image_download_link(img, filename, text):
     buffered = io.BytesIO()
@@ -14,6 +27,8 @@ def get_image_download_link(img, filename, text):
 
 # Set title.
 st.title('Artistic Image Filters')
+
+
 
 # Upload image.
 uploaded_file = st.file_uploader('Choose an image file:', type=['png','jpg'])
