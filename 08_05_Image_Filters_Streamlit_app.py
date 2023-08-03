@@ -26,7 +26,7 @@ def get_image_download_link(img, filename, text):
     return href
 
 # Set title.
-st.title('Artistic Image Filters')
+st.title('Artistic Image Filters_')
 
 
 
