@@ -4,6 +4,19 @@ import cv2
 from PIL import Image
 from filters import *
 
+
+
+# Generating a link to download a particular image file.
+def get_image_download_link(img, filename, text):
+    buffered = io.BytesIO()
+    img.save(buffered, format = 'JPEG')
+    img_str = base64.b64encode(buffered.getvalue()).decode()
+    href = f'<a href="data:file/txt;base64,{img_str}" download="{filename}">{text}</a>'
+    return href
+
+# Set title.
+st.title('Artistic Image Filters')
+
 st.markdown(
     """
     <style>
@@ -16,19 +29,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-# Generating a link to download a particular image file.
-def get_image_download_link(img, filename, text):
-    buffered = io.BytesIO()
-    img.save(buffered, format = 'JPEG')
-    img_str = base64.b64encode(buffered.getvalue()).decode()
-    href = f'<a href="data:file/txt;base64,{img_str}" download="{filename}">{text}</a>'
-    return href
-
-# Set title.
-st.title('Artistic Image Filters_')
-
-
 
 # Upload image.
 uploaded_file = st.file_uploader('Choose an image file:', type=['png','jpg'])
